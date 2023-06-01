@@ -3,6 +3,7 @@ import { NextUIProvider, Container, Spacer } from "@nextui-org/react";
 import Intro from "./components/Intro";
 import AboutMe from "./components/AboutMe";
 import Education from "./components/Education";
+import Experience from "./components/Experience";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
             <AboutMe />
             <Spacer y={2} />
             <Education />
+            <Spacer y={2} />
+            <Experience />
             <Spacer y={2} />
           </Container>
         </>
