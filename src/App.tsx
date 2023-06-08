@@ -4,7 +4,6 @@ import {
   Container,
   Spacer,
   createTheme,
-  Image,
 } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Intro from "./components/Intro";
