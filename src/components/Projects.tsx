@@ -13,7 +13,7 @@ import { projects } from "../data/projects";
 
 const Projects = () => {
   return (
-    <Container gap={2}>
+    <Container fluid>
       <Text id="projects" h3>
         Projects
       </Text>
@@ -26,7 +26,7 @@ const Projects = () => {
                   <Grid xs={4}>
                     <Image
                       width={400}
-                      alt="nextui logo"
+                      alt={project.alt_text}
                       src={project.img_path}
                     />
                   </Grid>

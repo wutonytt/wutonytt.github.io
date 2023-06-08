@@ -4,6 +4,7 @@ import {
   Container,
   Spacer,
   createTheme,
+  Image,
 } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Intro from "./components/Intro";
@@ -13,6 +14,7 @@ import Experience from "./components/Experience";
 import Navigator from "./components/Navigator";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import Footer from "./components/Footer";
 
 const lightTheme = createTheme({
   type: "light",
@@ -46,7 +48,7 @@ function App() {
         {
           <>
             <Navigator />
-            <Container gap={8}>
+            <Container fluid>
               <Spacer y={6} />
               <Intro />
               <Spacer y={6} />
@@ -60,6 +62,8 @@ function App() {
               <Spacer y={4} />
               <Skills />
               <Spacer y={4} />
+              <Footer />
+              <Spacer y={2} />
             </Container>
           </>
         }

@@ -2,8 +2,8 @@ import { Container, Text } from "@nextui-org/react";
 
 const AboutMe = () => {
   return (
-    <Container gap={2}>
-      <Text id="aboutme" h3>
+    <Container fluid>
+      <Text id="about-me" h3>
         Something about me...
       </Text>
       <Text>

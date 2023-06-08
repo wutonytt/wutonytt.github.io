@@ -3,12 +3,12 @@ import { skills } from "../data/skills";
 
 const Skills = () => {
   return (
-    <Container gap={2}>
+    <Container fluid>
       <Text id="skills" h3>
         Skills
       </Text>
       <Grid.Container gap={2} css={{ textIndent: "1em" }}>
-        <Grid xs={4}>
+        <Grid xs={12} md={4}>
           <Card>
             <Card.Header>
               <Text b>Programming Languages</Text>
@@ -23,7 +23,7 @@ const Skills = () => {
             </Card.Body>
           </Card>
         </Grid>
-        <Grid xs={4}>
+        <Grid xs={12} md={4}>
           <Card>
             <Card.Header>
               <Text b>Tools</Text>
@@ -38,7 +38,7 @@ const Skills = () => {
             </Card.Body>
           </Card>
         </Grid>
-        <Grid xs={4}>
+        <Grid xs={12} md={4}>
           <Card>
             <Card.Header>
               <Text b>Frameworks</Text>

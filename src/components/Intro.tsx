@@ -5,7 +5,7 @@ const Intro = () => {
   const description =
     "Computer Science Student @ University of Illinois Urbana-Champaign";
   return (
-    <Container gap={2}>
+    <Container fluid>
       <Text h1 size={70} color="$titleColor" weight="bold">
         {name}
       </Text>

@@ -11,20 +11,25 @@ import { experience } from "../data/experience";
 
 const Experience = () => {
   return (
-    <Container gap={2}>
+    <Container fluid>
       <Text id="experience" h3>
         Experience
       </Text>
       {experience.map((exp) => (
         <Grid.Container gap={2}>
-          <Card css={{ p: "$6" }}>
+          <Card>
             <Card.Header>
-              <Grid.Container css={{ pl: "$6" }}>
+              <Grid.Container gap={2}>
                 <Row>
-                  <Grid xs={7}>
-                    <Image alt="nextui logo" src={exp.logo} width="220px" />
+                  <Grid xs={6}>
+                    <Image
+                      autoResize
+                      alt={exp.alt_text}
+                      src={exp.logo}
+                      width="220px"
+                    />
                   </Grid>
-                  <Col xs={8}>
+                  <Col xs={6}>
                     <Grid>
                       <Text h4>{exp.company}</Text>
                     </Grid>
