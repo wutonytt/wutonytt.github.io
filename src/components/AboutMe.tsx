@@ -14,6 +14,7 @@ const AboutMe = () => {
         Services from 2022 to 2023. I worked at InQuartik as a Software Engineer
         Intern from January to July in 2022. And I also worked at Synopsys as a
         Software Engineer Intern in Summer 2021.
+        <br />
         <br /> As a software engineer, I enjoy trying new and cool stuffs,
         experience special things, and learn new knowledges. I am interested in
         Systems, Backend Engineering, Machine Learning and Data Science, trying
