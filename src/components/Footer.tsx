@@ -10,7 +10,7 @@ const Footer = () => {
       <Text>Designed and Developed by</Text>
       <Text>
         Hung-Yi Wu
-        <img className="emoji" src="src/assets/emojis/rockon.png" alt="emoji" />
+        <img className="emoji" src="/assets/emojis/rockon.png" alt="emoji" />
         2023
         <Button
           rounded
@@ -19,11 +19,7 @@ const Footer = () => {
           id="top-button"
           onPress={scrollToTop}
         >
-          <img
-            className="emoji"
-            src="src/assets/emojis/pointing-up.png"
-            alt=""
-          />
+          <img className="emoji" src="/assets/emojis/pointing-up.png" alt="" />
         </Button>
       </Text>
     </Container>

@@ -6,8 +6,7 @@ export const projects = [
       "Built an SVM model to classify table tennis players’ strokes (forehand, backhand, etc.) with skeleton detection and achieved 92% accuracy on test videos",
       "Designed a model to trace balls and tables with a 90% average IoU score on test images by Semantic Segmentation utilizing Google AI’s EfficientNet",
     ],
-    img_path:
-      "src/assets/previews/camera-based-table-tennis-posture-analysis.png",
+    img_path: "/assets/previews/camera-based-table-tennis-posture-analysis.png",
     alt_text: "Preview for Camera-Based Table Tennis Stroke Analysis",
     repo_link:
       "https://github.com/wutonytt/Camera-Based-Table-Tennis-Posture-Analysis",
@@ -27,7 +26,7 @@ export const projects = [
       "Utilized LSTM, Bidirectional LSTM, CNN-BiLSTM, and BERT-based model to perform fake news detection",
       "Achieved 97% to 99% accuracy on University of Victoria ISOT Fake News Dataset",
     ],
-    img_path: "src/assets/previews/fake-news-detection.png",
+    img_path: "/assets/previews/fake-news-detection.png",
     alt_text:
       "Preview for Fake News Detection using a BERT-Based Deep Learning Approach",
     repo_link: "https://github.com/wutonytt/fake-news-detection",
@@ -47,7 +46,7 @@ export const projects = [
       "Implemented a Long Short-Term Memory model to predict stock prices for the next ten days based on data for the past 1,000 days; data was fetched by Yahoo! Finance API",
       "Verified and visualized the trends of actual and predicted stock prices for the past ten years",
     ],
-    img_path: "src/assets/previews/stock-price-detection.png",
+    img_path: "/assets/previews/stock-price-detection.png",
     alt_text: "Preview for Stock Price Prediction",
     repo_link: "https://github.com/wutonytt/Stock-Price-Prediction",
     badges: [
@@ -64,7 +63,7 @@ export const projects = [
       "Used data grouping, role feature, and FastText to manipulate the input data and applied them on RoBERTa",
       "Achieved 63% accuracy on Emotion Classification on Empathetic Dialogues",
     ],
-    img_path: "src/assets/previews/empathetic_dialogues.png",
+    img_path: "/assets/previews/empathetic_dialogues.png",
     alt_text:
       "Preview for Emotion Classification on Empathetic Dialogues using BERT-Based Models",
     repo_link:
