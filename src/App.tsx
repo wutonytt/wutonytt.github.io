@@ -47,7 +47,7 @@ function App() {
         {
           <>
             <Navigator />
-            <Container fluid>
+            <Container fluid alignContent="center">
               <Spacer y={6} />
               <Intro />
               <Spacer y={6} />

@@ -1,5 +1,5 @@
 #root {
-  /* max-width: 85.5%; */
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 auto;
   /* text-align: center; */
@@ -31,13 +31,13 @@
   outline: none;
   width: 60px;
   position: fixed;
-  bottom: 25px;
+  bottom: 38px;
   right: 20px;
   cursor: pointer;
+}
 
-  &:hover {
-    transform: translateY(-10px);
-  }
+#top-button:hover {
+  transform: translateY(-10px);
 }
 
 #top-button img {
