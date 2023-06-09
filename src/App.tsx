@@ -20,6 +20,7 @@ const lightTheme = createTheme({
   theme: {
     colors: {
       titleColor: "#24397A",
+      background: "#F5F5F5",
     },
   },
 });
@@ -48,7 +49,7 @@ function App() {
           <>
             <Navigator />
             <Container fluid alignContent="center">
-              <Spacer y={6} />
+              <Spacer y={4} />
               <Intro />
               <Spacer y={6} />
               <AboutMe />

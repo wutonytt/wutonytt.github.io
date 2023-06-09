@@ -19,7 +19,7 @@ const Projects = () => {
       </Text>
       {projects.map((project) => (
         <Grid.Container gap={2}>
-          <Card isHoverable>
+          <Card>
             <Card.Body>
               <Grid.Container gap={2}>
                 <Grid xs={12} sm={4}>
