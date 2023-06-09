@@ -1,12 +1,4 @@
-import {
-  Card,
-  Col,
-  Container,
-  Grid,
-  Image,
-  Row,
-  Text,
-} from "@nextui-org/react";
+import { Card, Col, Container, Grid, Image, Text } from "@nextui-org/react";
 import { education } from "../data/education";
 
 const Education = () => {
@@ -17,34 +9,30 @@ const Education = () => {
       </Text>
       {education.map((edu) => (
         <Grid.Container gap={2}>
-          <Card>
-            <Card.Header>
+          <Card isHoverable>
+            <Card.Body>
               <Grid.Container gap={2}>
-                <Row>
-                  <Grid xs={6}>
-                    <Image
-                      showSkeleton="false"
-                      alt={edu.alt_text}
-                      src={edu.logo}
-                      width="220px"
-                    />
-                  </Grid>
-                  <Col xs={6}>
-                    <Grid>
-                      <Text h4>{edu.school}</Text>
-                    </Grid>
-                    <Grid>
-                      <Text h5 color="gray">
-                        {edu.degree}
-                      </Text>
-                    </Grid>
+                <Grid xs={12} sm={5}>
+                  <Image
+                    showSkeleton="false"
+                    alt={edu.alt_text}
+                    src={edu.logo}
+                    width="220px"
+                  />
+                </Grid>
+                <Grid xs={12} sm={5}>
+                  <Col>
+                    <Text h4>{edu.school}</Text>
+                    <Text h5 color="gray">
+                      {edu.degree}
+                    </Text>
                   </Col>
-                  <Grid xs={4}>
-                    <Text h6>{edu.year}</Text>
-                  </Grid>
-                </Row>
+                </Grid>
+                <Grid xs={12} sm={2}>
+                  <Text h6>{edu.year}</Text>
+                </Grid>
               </Grid.Container>
-            </Card.Header>
+            </Card.Body>
           </Card>
         </Grid.Container>
       ))}
