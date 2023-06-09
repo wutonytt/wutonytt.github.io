@@ -9,7 +9,7 @@ const Skills = () => {
       </Text>
       <Grid.Container gap={2} css={{ textIndent: "1em" }}>
         <Grid xs={12} sm={4}>
-          <Card isHoverable>
+          <Card>
             <Card.Header>
               <Text b>Programming Languages</Text>
             </Card.Header>
@@ -24,7 +24,7 @@ const Skills = () => {
           </Card>
         </Grid>
         <Grid xs={12} sm={4}>
-          <Card isHoverable>
+          <Card>
             <Card.Header>
               <Text b>Tools</Text>
             </Card.Header>
@@ -39,7 +39,7 @@ const Skills = () => {
           </Card>
         </Grid>
         <Grid xs={12} sm={4}>
-          <Card isHoverable>
+          <Card>
             <Card.Header>
               <Text b>Frameworks</Text>
             </Card.Header>
