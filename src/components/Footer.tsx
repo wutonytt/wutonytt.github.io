@@ -12,13 +12,7 @@ const Footer = () => {
         Hung-Yi Wu
         <img className="emoji" src="/assets/emojis/rockon.png" alt="emoji" />
         2023
-        <Button
-          rounded
-          color="warning"
-          auto
-          id="top-button"
-          onPress={scrollToTop}
-        >
+        <Button rounded auto id="top-button" onPress={scrollToTop}>
           <img className="emoji" src="/assets/emojis/pointing-up.png" alt="" />
         </Button>
       </Text>

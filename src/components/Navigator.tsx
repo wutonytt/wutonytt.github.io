@@ -9,7 +9,7 @@ function scrollToSection(section_id: string) {
   if (element) {
     const headerOffset = 120;
     const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
     // 👇 Will scroll smoothly to the top of the next section
     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   }
