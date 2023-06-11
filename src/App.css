@@ -44,6 +44,25 @@
   width: 100%;
 }
 
+#point-right::after {
+  position: relative;
+  margin-left: 8px;
+  bottom: 1px;
+  content: '';
+  background: url("/assets/emojis/pointright.png");
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: opacity 0.3s cubic-bezier(0.694, 0, 0.335, 1),
+    transform 0.3s cubic-bezier(0.694, 0, 0.335, 1);
+}
+
+#point-right:hover::after {
+  transform: translateX(7px);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

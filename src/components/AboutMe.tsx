@@ -1,4 +1,4 @@
-import { Container, Text } from "@nextui-org/react";
+import { Container, Link, Spacer, Text } from "@nextui-org/react";
 
 const AboutMe = () => {
   return (
@@ -22,6 +22,10 @@ const AboutMe = () => {
         screen, I'm probably watching Netflix, playing basketball, playing
         tennis, hiking, or crossing off another item on my bucket list.
       </Text>
+      <Spacer y={2} />
+      <Link id="point-right" target="_blank" href="/resume.pdf">
+        View My Resume
+      </Link>
     </Container>
   );
 };

@@ -55,7 +55,11 @@ const Projects = () => {
                   </Col>
                 </Grid>
                 <Grid>
-                  <Link isExternal target="_blank" href={project.repo_link}>
+                  <Link
+                    id="point-right"
+                    target="_blank"
+                    href={project.repo_link}
+                  >
                     Visit source code on GitHub
                   </Link>
                 </Grid>
