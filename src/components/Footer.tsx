@@ -1,4 +1,4 @@
-import { Button, Container, Text } from "@nextui-org/react";
+import { Button, Text } from "@nextui-org/react";
 
 function scrollToTop() {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -6,7 +6,7 @@ function scrollToTop() {
 
 const Footer = () => {
   return (
-    <Container fluid>
+    <>
       <Text>Designed and Developed by</Text>
       <Text>
         Hung-Yi Wu
@@ -16,7 +16,7 @@ const Footer = () => {
           <img className="emoji" src="/assets/emojis/pointing-up.png" alt="" />
         </Button>
       </Text>
-    </Container>
+    </>
   );
 };
 

@@ -1,8 +1,8 @@
-import { Container, Link, Spacer, Text } from "@nextui-org/react";
+import { Link, Spacer, Text } from "@nextui-org/react";
 
 const AboutMe = () => {
   return (
-    <Container fluid>
+    <>
       <Text id="about-me" h3>
         Something about me...
       </Text>
@@ -23,10 +23,10 @@ const AboutMe = () => {
         tennis, hiking, or crossing off another item on my bucket list.
       </Text>
       <Spacer y={2} />
-      <Link id="point-right" target="_blank" href="/resume.pdf">
+      <Link id="point-right" target="_blank" href="/resume.pdf" color="warning">
         View My Resume
       </Link>
-    </Container>
+    </>
   );
 };
 

@@ -1,15 +1,24 @@
-import { Container, Text } from "@nextui-org/react";
+import { Container, Spacer, Text } from "@nextui-org/react";
 
 const Intro = () => {
   const name = "Hung-Yi Wu";
   const description =
-    "Computer Science Student @ University of Illinois Urbana-Champaign";
+    "Computer Science Student at University of Illinois Urbana-Champaign";
   return (
-    <Container fluid>
-      <Text h1 size={70} color="$titleColor" weight="bold">
+    <Container
+      fluid
+      responsive={false}
+      css={{ textAlign: "center" }}
+      wrap="wrap"
+    >
+      <Text h1 size={56} color="$titleColor">
         {name}
       </Text>
-      <Text h2 color="$titleColor">
+      <Text h3 size={28}>
+        Software Engineer
+      </Text>
+      <Spacer y={1} />
+      <Text h4 size={20}>
         {description}
       </Text>
     </Container>

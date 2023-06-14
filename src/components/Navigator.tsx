@@ -54,7 +54,12 @@ const Navigator = () => {
   return (
     <>
       <Navbar maxWidth="fluid" isBordered={isDark} variant="floating">
-        <Navbar.Content enableCursorHighlight variant="underline" hideIn="xs">
+        <Navbar.Content
+          enableCursorHighlight
+          activeColor="warning"
+          variant="highlight-rounded"
+          hideIn="xs"
+        >
           {sections.map((section) => (
             <Navbar.Link
               onClick={() =>
@@ -96,6 +101,7 @@ const Navigator = () => {
             onChange={(e: { target: { checked: boolean } }) =>
               setTheme(e.target.checked ? "dark" : "light")
             }
+            color="warning"
           />
         </Navbar.Content>
       </Navbar>

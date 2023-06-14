@@ -1,9 +1,9 @@
-import { Card, Col, Container, Grid, Image, Text } from "@nextui-org/react";
+import { Card, Col, Grid, Image, Text } from "@nextui-org/react";
 import { experience } from "../data/experience";
 
 const Experience = () => {
   return (
-    <Container fluid>
+    <>
       <Text id="experience" h3>
         Experience
       </Text>
@@ -23,20 +23,18 @@ const Experience = () => {
                 <Grid xs={12} sm={6}>
                   <Col>
                     <Text h4>{exp.company}</Text>
-                    <Text h5 color="gray">
-                      {exp.position}
-                    </Text>
+                    <Text>{exp.position}</Text>
                   </Col>
                 </Grid>
                 <Grid xs={12} sm={2}>
-                  <Text h6>{exp.year}</Text>
+                  <Text>{exp.year}</Text>
                 </Grid>
               </Grid.Container>
             </Card.Body>
           </Card>
         </Grid.Container>
       ))}
-    </Container>
+    </>
   );
 };
 
