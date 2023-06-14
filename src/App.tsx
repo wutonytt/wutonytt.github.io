@@ -15,11 +15,23 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
 
+type Fonts = {
+  sans?: string;
+};
+
+const fonts: Fonts = {
+  sans: "Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+};
+
 const lightTheme = createTheme({
   type: "light",
   theme: {
+    fonts: fonts,
+    letterSpacings: {
+      tighter: "-0.03em",
+    },
     colors: {
-      titleColor: "#24397A",
+      titleColor: "#F5A524",
       background: "#F5F5F5",
     },
   },
@@ -28,8 +40,12 @@ const lightTheme = createTheme({
 const darkTheme = createTheme({
   type: "dark",
   theme: {
+    fonts: fonts,
+    letterSpacings: {
+      tighter: "-0.03em",
+    },
     colors: {
-      titleColor: "#FFFFFF",
+      titleColor: "#F5A524",
     },
   },
 });
@@ -48,7 +64,15 @@ function App() {
         {
           <>
             <Navigator />
-            <Container fluid alignContent="center">
+            <Container
+              fluid
+              responsive={false}
+              css={{
+                "@xs": { padding: "0 calc(8px + 1.5625vw)" },
+                "@sm": { padding: "0 calc(40px + 1.5625vw)" },
+                "@md": { padding: "0 calc(120px + 2.2vw)" },
+              }}
+            >
               <Spacer y={4} />
               <Intro />
               <Spacer y={6} />

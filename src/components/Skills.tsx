@@ -1,9 +1,9 @@
-import { Card, Container, Grid, Text } from "@nextui-org/react";
+import { Card, Grid, Text } from "@nextui-org/react";
 import { skills } from "../data/skills";
 
 const Skills = () => {
   return (
-    <Container fluid>
+    <>
       <Text id="skills" h3>
         Skills
       </Text>
@@ -16,8 +16,8 @@ const Skills = () => {
             <Card.Divider />
             <Card.Body>
               {skills.programming_languages.map((lang) => (
-                <Text h5 color="gray">
-                  - {lang}
+                <Text>
+                  {`\u2022`} {lang}
                 </Text>
               ))}
             </Card.Body>
@@ -31,8 +31,8 @@ const Skills = () => {
             <Card.Divider />
             <Card.Body>
               {skills.tools.map((tool) => (
-                <Text h5 color="gray">
-                  - {tool}
+                <Text>
+                  {`\u2022`} {tool}
                 </Text>
               ))}
             </Card.Body>
@@ -46,15 +46,15 @@ const Skills = () => {
             <Card.Divider />
             <Card.Body>
               {skills.frameworks.map((framework) => (
-                <Text h5 color="gray">
-                  - {framework}
+                <Text>
+                  {`\u2022`} {framework}
                 </Text>
               ))}
             </Card.Body>
           </Card>
         </Grid>
       </Grid.Container>
-    </Container>
+    </>
   );
 };
 

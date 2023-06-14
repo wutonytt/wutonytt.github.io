@@ -2,18 +2,18 @@ import {
   Badge,
   Card,
   Col,
-  Container,
   Grid,
   Image,
   Link,
   Row,
+  Spacer,
   Text,
 } from "@nextui-org/react";
 import { projects } from "../data/projects";
 
 const Projects = () => {
   return (
-    <Container fluid>
+    <>
       <Text id="projects" h3>
         Projects
       </Text>
@@ -36,18 +36,19 @@ const Projects = () => {
                     </Grid>
                     <Grid>
                       {project.descriptions.map((description) => (
-                        <Text h5 color="gray">
-                          - {description}
-                        </Text>
+                        <>
+                          <Text>
+                            {`\u2022`} {description}
+                          </Text>
+                          <Spacer y={0.5} />
+                        </>
                       ))}
                     </Grid>
                     <Row>
                       <Grid.Container gap={1}>
                         {project.badges.map((badge) => (
                           <Grid>
-                            <Badge color="primary" variant="flat">
-                              {badge}
-                            </Badge>
+                            <Badge color="warning">{badge}</Badge>
                           </Grid>
                         ))}
                       </Grid.Container>
@@ -59,6 +60,7 @@ const Projects = () => {
                     id="point-right"
                     target="_blank"
                     href={project.repo_link}
+                    color="warning"
                   >
                     Visit source code on GitHub
                   </Link>
@@ -68,7 +70,7 @@ const Projects = () => {
           </Card>
         </Grid.Container>
       ))}
-    </Container>
+    </>
   );
 };
 

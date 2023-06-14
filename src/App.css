@@ -31,7 +31,7 @@
   outline: none;
   width: 60px;
   position: fixed;
-  bottom: 38px;
+  bottom: 36px;
   right: 20px;
   cursor: pointer;
 }
@@ -48,7 +48,7 @@
   position: relative;
   margin-left: 8px;
   bottom: 1px;
-  content: '';
+  content: "";
   background: url("/assets/emojis/pointright.png");
   background-size: 100%;
   width: 20px;
