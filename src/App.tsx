@@ -73,7 +73,6 @@ function App() {
                 "@md": { padding: "0 calc(120px + 2.2vw)" },
               }}
             >
-              <Spacer y={4} />
               <Intro />
               <Spacer y={6} />
               <AboutMe />
