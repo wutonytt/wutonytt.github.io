@@ -1,27 +1,13 @@
-import {
-  Col,
-  Container,
-  Grid,
-  Image,
-  Link,
-  Spacer,
-  Text,
-} from "@nextui-org/react";
+import { Col, Grid, Image, Link, Spacer, Text } from "@nextui-org/react";
 
 const Intro = () => {
   return (
-    <Container
-      fluid
-      responsive={false}
-      css={{
-        height: "calc(100vh - 88px)",
-      }}
-    >
+    <>
       <Grid.Container
         justify="center"
         css={{
           textAlign: "center",
-          height: "100%",
+          minHeight: "calc(100vh - 88px)",
           padding: "10% 0 0 0",
           "@xs": { padding: "10% 24% 0 24%" },
         }}
@@ -64,7 +50,7 @@ const Intro = () => {
           </Col>
         </Grid>
       </Grid.Container>
-    </Container>
+    </>
   );
 };
 
