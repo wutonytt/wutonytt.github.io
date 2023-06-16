@@ -10,8 +10,8 @@ const AboutMe = () => {
         <Row justify="center">
           <Grid xs={12} sm={10}>
             <Text>
-              I'm a Master of Computer Science student at
-              <strong>University of Illinois Urbana-Champaign (UIUC)</strong>
+              I'm a Master of Computer Science student at{" "}
+              <strong>University of Illinois Urbana-Champaign (UIUC)</strong>{" "}
               and I received my BS degree in Computer Science from National Yang
               Ming Chiao Tung University in Taiwan. Besides, I was a Software
               Engineer at Synopsys and ASUS.
