@@ -232,12 +232,12 @@
 
     <div class="container">
         <div id="videoContainer">
-            <video id="valentineVideo" autoplay muted controls playsinline preload="auto">
+            <video id="valentineVideo" controls playsinline preload="auto">
                 <source src="assets/videos/valentine-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div id="volumeHint" style="display: none;">
-                🔊 Turn on sound for the best experience
+            <div id="playButton" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); color: white; padding: 30px 60px; border-radius: 50px; font-size: 2em; cursor: pointer; z-index: 1002; backdrop-filter: blur(10px); display: flex; align-items: center; gap: 15px;">
+                ▶️ Click to Play
             </div>
         </div>
 
@@ -268,92 +268,14 @@
 
         createHearts();
 
-        // Ensure video autoplays
+        // Simple play button handler
         const video = document.getElementById('valentineVideo');
-        const volumeHint = document.getElementById('volumeHint');
+        const playButton = document.getElementById('playButton');
 
-        // Wait for video to be loaded before attempting to play
-        let playPromise;
-        if (video.readyState >= 3) {
-            // Video is already loaded, play immediately
-            playPromise = video.play();
-        } else {
-            // Wait for video to load first
-            video.addEventListener('loadeddata', function() {
-                video.play();
-            }, { once: true });
-        }
-
-        // Show volume hint when video actually starts playing
-        video.addEventListener('playing', function() {
-            volumeHint.style.display = 'block';
-            setTimeout(() => {
-                if (volumeHint) {
-                    volumeHint.remove();
-                }
-            }, 4000);
-
-            // Unmute on first user interaction
-            let hasUnmuted = false;
-            function unmuteVideo() {
-                if (!hasUnmuted && !video.muted) {
-                    hasUnmuted = true;
-                    return;
-                }
-                if (!hasUnmuted) {
-                    video.muted = false;
-                    hasUnmuted = true;
-                    console.log('Video unmuted after user interaction');
-                    // Remove all listeners after unmuting
-                    document.removeEventListener('click', unmuteVideo);
-                    document.removeEventListener('touchstart', unmuteVideo);
-                    document.removeEventListener('mousemove', unmuteVideo);
-                    document.removeEventListener('scroll', unmuteVideo);
-                    document.removeEventListener('keydown', unmuteVideo);
-                }
-            }
-
-            document.addEventListener('click', unmuteVideo, { once: false });
-            document.addEventListener('touchstart', unmuteVideo, { once: false });
-            document.addEventListener('mousemove', unmuteVideo, { once: false });
-            document.addEventListener('scroll', unmuteVideo, { once: false });
-            document.addEventListener('keydown', unmuteVideo, { once: false });
-        }, { once: true });
-
-        if (playPromise !== undefined && playPromise !== null) {
-            playPromise.then(() => {
-                // Autoplay started successfully
-                console.log('Video is playing');
-            }).catch(error => {
-                // Autoplay was prevented, show a play button overlay
-                console.log('Autoplay prevented:', error);
-                showPlayButton();
-            });
-        }
-
-        function showPlayButton() {
-            const playButton = document.createElement('div');
-            playButton.innerHTML = '▶️ Click to Play';
-            playButton.style.position = 'fixed';
-            playButton.style.top = '50%';
-            playButton.style.left = '50%';
-            playButton.style.transform = 'translate(-50%, -50%)';
-            playButton.style.background = 'rgba(0, 0, 0, 0.8)';
-            playButton.style.color = 'white';
-            playButton.style.padding = '30px 60px';
-            playButton.style.borderRadius = '50px';
-            playButton.style.fontSize = '2em';
-            playButton.style.cursor = 'pointer';
-            playButton.style.zIndex = '1002';
-            playButton.style.backdropFilter = 'blur(10px)';
-
-            playButton.onclick = function() {
-                video.play();
-                playButton.remove();
-            };
-
-            document.body.appendChild(playButton);
-        }
+        playButton.onclick = function() {
+            video.play();
+            playButton.style.display = 'none';
+        };
 
         // Video ended event
         const videoContainer = document.getElementById('videoContainer');
