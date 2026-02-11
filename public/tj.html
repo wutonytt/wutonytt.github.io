@@ -573,28 +573,69 @@
 
         // Screenshot function
         document.getElementById('screenshotBtn').onclick = function() {
-            // Hide action buttons before screenshot
+            // Get elements
             const actionButtons = document.getElementById('actionButtons');
+            const countdown = document.getElementById('countdown');
+            const questionContainer = document.getElementById('questionContainer');
+
+            // Hide action buttons
             actionButtons.style.display = 'none';
 
-            // Wait a moment for UI to update, then capture
+            // Create a wrapper div with all content for screenshot
+            const screenshotWrapper = document.createElement('div');
+            screenshotWrapper.style.position = 'relative';
+            screenshotWrapper.style.width = '100vw';
+            screenshotWrapper.style.height = '100vh';
+            screenshotWrapper.style.background = 'linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #6c5b7b 100%)';
+            screenshotWrapper.style.display = 'flex';
+            screenshotWrapper.style.flexDirection = 'column';
+            screenshotWrapper.style.justifyContent = 'center';
+            screenshotWrapper.style.alignItems = 'center';
+            screenshotWrapper.style.padding = '40px';
+            screenshotWrapper.style.boxSizing = 'border-box';
+
+            // Clone countdown
+            const countdownClone = countdown.cloneNode(true);
+            countdownClone.style.position = 'relative';
+            countdownClone.style.top = 'auto';
+            countdownClone.style.left = 'auto';
+            countdownClone.style.transform = 'none';
+            countdownClone.style.marginBottom = '40px';
+
+            // Clone question content
+            const questionClone = questionContainer.cloneNode(true);
+            questionClone.style.display = 'block';
+            questionClone.style.position = 'relative';
+
+            screenshotWrapper.appendChild(countdownClone);
+            screenshotWrapper.appendChild(questionClone);
+
+            // Temporarily add to body (hidden)
+            screenshotWrapper.style.position = 'fixed';
+            screenshotWrapper.style.top = '0';
+            screenshotWrapper.style.left = '0';
+            screenshotWrapper.style.zIndex = '-9999';
+            document.body.appendChild(screenshotWrapper);
+
+            // Wait and capture
             setTimeout(() => {
-                html2canvas(document.body, {
+                html2canvas(screenshotWrapper, {
                     backgroundColor: null,
-                    scale: 2, // Higher quality
+                    scale: 2,
                     logging: false,
-                    useCORS: true,
-                    allowTaint: true
+                    width: window.innerWidth,
+                    height: window.innerHeight
                 }).then(canvas => {
                     const link = document.createElement('a');
                     link.download = 'our-special-moment.png';
                     link.href = canvas.toDataURL('image/png');
                     link.click();
 
-                    // Show buttons again after screenshot
+                    // Cleanup
+                    screenshotWrapper.remove();
                     actionButtons.style.display = 'flex';
                 });
-            }, 100);
+            }, 500);
         };
 
         // Share function
