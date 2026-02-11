@@ -74,29 +74,6 @@
             object-fit: contain;
         }
 
-        /* Loading Progress Bar */
-        #loadingProgress {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            max-width: 400px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            z-index: 1003;
-        }
-
-        #loadingProgressBar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #f093fb, #f5576c);
-            border-radius: 10px;
-            transition: width 0.3s ease;
-        }
-
         /* Fullscreen Button */
         #fullscreenBtn {
             position: fixed;
@@ -352,9 +329,6 @@
             <div id="volumeHint" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); color: white; padding: 20px 40px; border-radius: 15px; font-size: 1.5em; z-index: 1002; backdrop-filter: blur(10px); text-align: center;">
                 🔊 Turn on sound for the best experience
             </div>
-            <div id="loadingProgress">
-                <div id="loadingProgressBar"></div>
-            </div>
             <button id="fullscreenBtn">⛶ Fullscreen</button>
         </div>
 
@@ -376,17 +350,19 @@
     <script>
         // Countdown Timer
         function updateCountdown() {
-            const startDate = new Date('2024-10-09');
+            // October 9, 2024 at 11:00 PM CST (Chicago time)
+            const startDate = new Date('2024-10-09T23:00:00-05:00');
             const now = new Date();
             const diff = now - startDate;
 
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-            document.getElementById('countdown').innerHTML = `Together for ${days} days, ${hours} hours 💕`;
+            document.getElementById('countdown').innerHTML = `Together for ${days} days, ${hours} hours, ${minutes} minutes 💕`;
         }
         updateCountdown();
-        setInterval(updateCountdown, 3600000); // Update every hour
+        setInterval(updateCountdown, 60000); // Update every minute
 
         // Create mixed particles (hearts and rose petals)
         function createParticles() {
@@ -408,22 +384,7 @@
         // Video controls
         const video = document.getElementById('valentineVideo');
         const playButton = document.getElementById('playButton');
-        const loadingProgress = document.getElementById('loadingProgress');
-        const loadingProgressBar = document.getElementById('loadingProgressBar');
         const fullscreenBtn = document.getElementById('fullscreenBtn');
-
-        // Loading progress
-        video.addEventListener('progress', function() {
-            if (video.buffered.length > 0) {
-                const percent = (video.buffered.end(0) / video.duration) * 100;
-                loadingProgressBar.style.width = percent + '%';
-                if (percent >= 100) {
-                    setTimeout(() => {
-                        loadingProgress.style.display = 'none';
-                    }, 500);
-                }
-            }
-        });
 
         // Play button
         playButton.onclick = function() {
