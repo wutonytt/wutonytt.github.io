@@ -573,12 +573,36 @@
 
         // Screenshot function
         document.getElementById('screenshotBtn').onclick = function() {
-            html2canvas(document.body).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'our-special-moment.png';
-                link.href = canvas.toDataURL();
-                link.click();
-            });
+            // Create text overlay for screenshot
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.bottom = '40px';
+            overlay.style.left = '50%';
+            overlay.style.transform = 'translateX(-50%)';
+            overlay.style.background = 'rgba(255, 255, 255, 0.95)';
+            overlay.style.color = '#f5576c';
+            overlay.style.padding = '20px 40px';
+            overlay.style.borderRadius = '20px';
+            overlay.style.fontSize = '1.8em';
+            overlay.style.fontWeight = 'bold';
+            overlay.style.textAlign = 'center';
+            overlay.style.zIndex = '99999';
+            overlay.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+            overlay.innerHTML = '💕 Our Special Moment 💕<br><span style="font-size: 0.6em; color: #764ba2;">She Said Yes!</span>';
+            document.body.appendChild(overlay);
+
+            // Take screenshot after a brief moment
+            setTimeout(() => {
+                html2canvas(document.body).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'our-special-moment.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+
+                    // Remove overlay after screenshot
+                    overlay.remove();
+                });
+            }, 100);
         };
 
         // Share function
