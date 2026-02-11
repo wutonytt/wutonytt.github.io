@@ -573,13 +573,28 @@
 
         // Screenshot function
         document.getElementById('screenshotBtn').onclick = function() {
-            // Capture the actual page as-is
-            html2canvas(document.body).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'our-special-moment.png';
-                link.href = canvas.toDataURL();
-                link.click();
-            });
+            // Hide action buttons before screenshot
+            const actionButtons = document.getElementById('actionButtons');
+            actionButtons.style.display = 'none';
+
+            // Wait a moment for UI to update, then capture
+            setTimeout(() => {
+                html2canvas(document.body, {
+                    backgroundColor: null,
+                    scale: 2, // Higher quality
+                    logging: false,
+                    useCORS: true,
+                    allowTaint: true
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'our-special-moment.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+
+                    // Show buttons again after screenshot
+                    actionButtons.style.display = 'flex';
+                });
+            }, 100);
         };
 
         // Share function
