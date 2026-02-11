@@ -580,15 +580,20 @@
             overlay.style.left = '50%';
             overlay.style.transform = 'translateX(-50%)';
             overlay.style.background = 'rgba(255, 255, 255, 0.95)';
-            overlay.style.color = '#f5576c';
-            overlay.style.padding = '20px 40px';
-            overlay.style.borderRadius = '20px';
-            overlay.style.fontSize = '1.8em';
+            overlay.style.color = '#764ba2';
+            overlay.style.padding = '30px 50px';
+            overlay.style.borderRadius = '25px';
+            overlay.style.fontSize = '1.3em';
             overlay.style.fontWeight = 'bold';
             overlay.style.textAlign = 'center';
             overlay.style.zIndex = '99999';
             overlay.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-            overlay.innerHTML = '💕 Our Special Moment 💕<br><span style="font-size: 0.6em; color: #764ba2;">She Said Yes!</span>';
+            overlay.style.lineHeight = '1.6';
+            overlay.innerHTML = `
+                <div style="font-size: 1.4em; margin-bottom: 15px;">Janice, will you be my Valentine? 💕</div>
+                <div style="color: #f5576c; font-size: 1.2em; margin-bottom: 10px;">🎉 Yay! You made me the happiest! 💕✨</div>
+                <div style="font-size: 0.9em; font-style: italic; color: #667eea;">I promise to make every moment with you magical ✨</div>
+            `;
             document.body.appendChild(overlay);
 
             // Take screenshot after a brief moment
