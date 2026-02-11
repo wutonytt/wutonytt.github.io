@@ -292,6 +292,32 @@
                     volumeHint.remove();
                 }
             }, 4000);
+
+            // Unmute on first user interaction
+            let hasUnmuted = false;
+            function unmuteVideo() {
+                if (!hasUnmuted && !video.muted) {
+                    hasUnmuted = true;
+                    return;
+                }
+                if (!hasUnmuted) {
+                    video.muted = false;
+                    hasUnmuted = true;
+                    console.log('Video unmuted after user interaction');
+                    // Remove all listeners after unmuting
+                    document.removeEventListener('click', unmuteVideo);
+                    document.removeEventListener('touchstart', unmuteVideo);
+                    document.removeEventListener('mousemove', unmuteVideo);
+                    document.removeEventListener('scroll', unmuteVideo);
+                    document.removeEventListener('keydown', unmuteVideo);
+                }
+            }
+
+            document.addEventListener('click', unmuteVideo, { once: false });
+            document.addEventListener('touchstart', unmuteVideo, { once: false });
+            document.addEventListener('mousemove', unmuteVideo, { once: false });
+            document.addEventListener('scroll', unmuteVideo, { once: false });
+            document.addEventListener('keydown', unmuteVideo, { once: false });
         }, { once: true });
 
         if (playPromise !== undefined && playPromise !== null) {
