@@ -286,11 +286,6 @@
 
         // Show volume hint when video actually starts playing
         video.addEventListener('playing', function() {
-            // Unmute the video after it starts playing
-            setTimeout(() => {
-                video.muted = false;
-            }, 500);
-
             volumeHint.style.display = 'block';
             setTimeout(() => {
                 if (volumeHint) {
