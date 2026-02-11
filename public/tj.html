@@ -232,7 +232,7 @@
 
     <div class="container">
         <div id="videoContainer">
-            <video id="valentineVideo" autoplay muted controls playsinline>
+            <video id="valentineVideo" autoplay muted controls playsinline preload="auto">
                 <source src="assets/videos/valentine-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -271,7 +271,18 @@
         // Ensure video autoplays
         const video = document.getElementById('valentineVideo');
         const volumeHint = document.getElementById('volumeHint');
-        const playPromise = video.play();
+
+        // Wait for video to be loaded before attempting to play
+        let playPromise;
+        if (video.readyState >= 3) {
+            // Video is already loaded, play immediately
+            playPromise = video.play();
+        } else {
+            // Wait for video to load first
+            video.addEventListener('loadeddata', function() {
+                video.play();
+            }, { once: true });
+        }
 
         // Show volume hint when video actually starts playing
         video.addEventListener('playing', function() {
@@ -288,35 +299,39 @@
             }, 4000);
         }, { once: true });
 
-        if (playPromise !== undefined) {
+        if (playPromise !== undefined && playPromise !== null) {
             playPromise.then(() => {
                 // Autoplay started successfully
                 console.log('Video is playing');
             }).catch(error => {
                 // Autoplay was prevented, show a play button overlay
                 console.log('Autoplay prevented:', error);
-                const playButton = document.createElement('div');
-                playButton.innerHTML = '▶️ Click to Play';
-                playButton.style.position = 'fixed';
-                playButton.style.top = '50%';
-                playButton.style.left = '50%';
-                playButton.style.transform = 'translate(-50%, -50%)';
-                playButton.style.background = 'rgba(0, 0, 0, 0.8)';
-                playButton.style.color = 'white';
-                playButton.style.padding = '30px 60px';
-                playButton.style.borderRadius = '50px';
-                playButton.style.fontSize = '2em';
-                playButton.style.cursor = 'pointer';
-                playButton.style.zIndex = '1002';
-                playButton.style.backdropFilter = 'blur(10px)';
-
-                playButton.onclick = function() {
-                    video.play();
-                    playButton.remove();
-                };
-
-                document.body.appendChild(playButton);
+                showPlayButton();
             });
+        }
+
+        function showPlayButton() {
+            const playButton = document.createElement('div');
+            playButton.innerHTML = '▶️ Click to Play';
+            playButton.style.position = 'fixed';
+            playButton.style.top = '50%';
+            playButton.style.left = '50%';
+            playButton.style.transform = 'translate(-50%, -50%)';
+            playButton.style.background = 'rgba(0, 0, 0, 0.8)';
+            playButton.style.color = 'white';
+            playButton.style.padding = '30px 60px';
+            playButton.style.borderRadius = '50px';
+            playButton.style.fontSize = '2em';
+            playButton.style.cursor = 'pointer';
+            playButton.style.zIndex = '1002';
+            playButton.style.backdropFilter = 'blur(10px)';
+
+            playButton.onclick = function() {
+                video.play();
+                playButton.remove();
+            };
+
+            document.body.appendChild(playButton);
         }
 
         // Video ended event
